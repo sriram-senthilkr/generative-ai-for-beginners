@@ -1,18 +1,13 @@
 from openai import OpenAI
 import os
-import dotenv
-
-# import dotenv
-dotenv.load_dotenv()
 
 # configure OpenAI service client 
 client = OpenAI()
 
-#deployment=os.environ['OPENAI_DEPLOYMENT']
 deployment="gpt-3.5-turbo"
 
 # add your completion code
-prompt = "Complete the following: Once upon a time there was a"
+prompt = "Show me 5 recipes for a dish with the following ingredients: chicken, potatoes, and carrots. Per recipe, list all the ingredients used"
 messages = [{"role": "user", "content": prompt}]  
 # make completion
 completion = client.chat.completions.create(model=deployment, messages=messages)
